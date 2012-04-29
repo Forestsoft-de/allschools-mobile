@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Allschools Mobile - News</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head> 
+
+<body> 
+	<div data-role="page" id="newsListPage">
+
+		<div data-role="header">
+			<h1>Allschools News</h1>
+		</div><!-- /header -->
+
+		<div data-role="content">	
+					<ul id="newsList" data-role="listview" data-theme="d" data-divider-theme="d"></ul>
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<div data-role="navbar" data-position="fixed" data-iconpos="top">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="news.html" class="ui-btn-active">News</a></li>
+						<li><a href="#">Reviews</a></li>
+						<li><a href="#">Shows</a></li>
+					</ul>
+				</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div><!-- /page -->
+<script src="js/newslist.js"></script>
+</body>
+</html>
