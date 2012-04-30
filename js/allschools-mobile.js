@@ -1,4 +1,4 @@
-var serviceURL = "http://localhost/allschools-mobile/json/";
+var serviceURL = "json/";
 
 $('#newsPage').live('pageinit', function(event) {
 	getNews();
