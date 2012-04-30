@@ -1,0 +1,71 @@
+{
+     "items":
+     [
+         {
+           "date"  : "Friday, October 8, 2010",
+           "count": 2,
+		   "news":
+			[
+				{
+					"id": "123",
+					"header": "Test 1",
+					"teaser": "Teaser 1",
+					"time": "12:23"
+				},
+				{
+					"id": "123",
+					"header": "Test 2",
+					"teaser": "Teaser 2",
+					"time": "11:13"
+				}
+			]
+         },
+         {
+           "date"  : "Thursday, October 7, 2010",
+           "count": 1,
+		   "news":
+			[
+				{
+					"id": "123",
+					"header": "Test 2",
+					"teaser": "Teaser 2",
+					"time": "12:23"
+				}
+			]
+
+         },
+         {
+           "date"  : "Wednesday, October 6, 2010",
+           "count": 4,
+		   "news":
+			[
+				{
+					"id": "123",
+					"header": "Test 1",
+					"teaser": "Teaser 1",
+					"time": "12:23"
+				},
+				{
+					"id": "123",
+					"header": "Test 2",
+					"teaser": "Teaser 2",
+					"time": "12:23"
+				},
+				{
+					"id": "123",
+					"header": "Test 1",
+					"teaser": "Teaser 1",
+					"time": "12:23"
+				},
+				{
+					"id": "123",
+					"header": "Test 2",
+					"teaser": "Teaser 2",
+					"time": "12:23"
+				}
+				
+			]
+
+         }
+     ]
+ }

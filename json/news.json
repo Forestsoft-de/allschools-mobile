@@ -1,64 +1,30 @@
 {
-     "items":
-     [
-         {
-           "date"  : "Friday, October 8, 2010",
-           "count": 2,
-		   "news":
-			[
-				{
-					"id": "123",
-					"header": "Test 1",
-					"teaser": "Teaser 1"
-				},
-				{
-					"id": "123",
-					"header": "Test 2",
-					"teaser": "Teaser 2"
-				}
-			]
-         },
-         {
-           "date"  : "Thursday, October 7, 2010",
-           "count": 1,
-		   "news":
-			[
-				{
-					"id": "123",
-					"header": "Test 2",
-					"teaser": "Teaser 2"
-				}
-			]
-
-         },
-         {
-           "date"  : "Wednesday, October 6, 2010",
-           "count": 4,
-		   "news":
-			[
-				{
-					"id": "123",
-					"header": "Test 1",
-					"teaser": "Teaser 1"
-				},
-				{
-					"id": "123",
-					"header": "Test 2",
-					"teaser": "Teaser 2"
-				},
-				{
-					"id": "123",
-					"header": "Test 1",
-					"teaser": "Teaser 1"
-				},
-				{
-					"id": "123",
-					"header": "Test 2",
-					"teaser": "Teaser 2"
-				}
-				
-			]
-
-         }
-     ]
+	"id": "1234",
+	"title": "ALLSCHOOLS PRESENTS: ROCK DIE BURG FESTIVAL 2012",
+	"text": "lorem ipsum",
+	"date": "26.04.12",
+	"time": "10:56",
+	"author": "mitch",
+	"authorName": "Mitch",
+	"comments": 
+		[
+			{
+				"author": "sepp",
+				"title": "test",
+				"text": "Die Band heißt RADIO HAVANNA.",
+				"date": "25.04.12 09:48"
+			},
+			{
+				"author": "sepp",
+				"title": "test",
+				"text": "Die Band heißt RADIO HAVANNA.",
+				"date": "25.04.12 09:48"
+			},
+			{
+				"author": "sepp",
+				"title": "test",
+				"text": "Die Band heißt RADIO HAVANNA.",
+				"date": "25.04.12 09:48"
+			}
+		]
  }
