@@ -51,6 +51,15 @@ function getRecordReview() {
 	$.getJSON(serviceURL + 'recordreview.json', function(data) {
 		$('#title').text(data.band.name + " - " + data.recordName);
 		$('#text').text(data.reviewText);
+		$('#reviewDate').text(data.reviewDate);
+		$('#releaseDate').text(data.releaseDate);
+		$.each(data.authors, function(index, entry) {
+			$('#authors').after('<li><a data-transition="slide" href="author.html?id=' + entry.id + '">' + entry.firstName + '</a></li>');
+		});
+		$('#bandName').text(data.band.name);
+		$('#labelName').text(data.label.name);
+		$('#recordInfo').listview('refresh');
+		
 		$('#cover').attr("src", data.cover);
 
 	});
