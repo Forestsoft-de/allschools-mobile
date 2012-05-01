@@ -1,5 +1,11 @@
 Copyright [2012] [Michael Plöd]
 
+Icons from Glyphish (under images/glyphish-icons) are licensed under creative-commons from http://glyphish.com/
+
+JQuery is licensed under a MIT License
+
+All other code (everything *.html, under js or else) is licensed as follows:
+
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
