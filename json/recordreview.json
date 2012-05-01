@@ -1,0 +1,48 @@
+{
+	"id": "1234",
+	"band": 
+		{
+			"id": "13343",
+			"name": "Metallica"
+		},
+	"label": 
+		{
+			"id": "13343",
+			"name": "Universal Music"
+		},
+	"authors": 
+		[
+			{
+				"id": "12324",
+				"firstName": "Clement"
+			},
+			{
+				"id": "324",
+				"firstName": "Michael P."
+			}
+			
+		],
+	"authorRatings": 
+			[
+				{
+					"rating": "7",
+					"firstName": "Clement"
+				},
+				{
+					"rating": "8",
+					"firstName": "Michael P."
+				}
+
+			],
+	"readerRating": 
+		{
+			"number": "34",
+			"average": "8.4"
+		},
+	"recordName": "Death Magnetic",
+	"releaseDate": "12.09.2008",
+	"reviewDate": "15.09.2008",
+	"cover": "http://allschools.de/pictures/cover/MetallicaDeath.jpg",
+	"reviewText": "Wie so viele andere auch bin ich am Releasedate der neuen METALLICA-Scheibe \"Death Magnetic\" in den Laden gelaufen, um wieder einmal enttäuscht zu werden...um endlich wieder die Auferstehung meiner einstigen Rock-Heroen zu feiern...um eine gute Metalplatte zu hören...Im Vorfeld der Veröffentlichung (und die Vermarktungsmaschinerie bei der Marke METALLICA lief bei diesem Album auf Hochtouren!) wurde immer wieder von einer Annäherung an das geniale \"...And Justice For All\" Album von 1988 gesprochen. Aber dazu muss Entwarnung gegeben werden, denn warum sollte sich diese Gruppe, die alles erreicht hat, was eine Metalband auch nur erreichen könnte, wiederholen? Ich meine, wenn ich ein Thrash-Klassiker wie \"One\" hören will, dann lege ich \"One\" in den Player. Vergleichbar sind die Stücke allenfalls deshalb, weil sie zum Teil überlang und sehr verschachtelt und teilweise härter als auf den letzten Alben (und da grenze ich \"St. Anger\" aus, da dieses Album sehr hart war...hart zu ertragen, dennoch war es wichtig für die Band und hatte mit dem Titeltrack einen echten Kracher aufzubieten) arrangiert sind. Wenn überhaupt ein Vergleich mit dem Backkatalog der Band angestellt werden muss, dann doch bitte mit den \"Load/Reload\"-Alben, da insgesamt eher von einer sehr harten Metal/Rockscheibe als von einem originären Thrash Metal-Output gesprochen werden darf. Auch erinnert die geniale Stimme des über sich herauswachsenden und endlich mal wieder richtig bissig wütend singenden James Hetfield mehr an die eben erwähnten Veröffentlichungen. \"Death Magnetic\" besticht weiterhin von einem sich in Rage spielenden Kirk Hammett, der auf allen Stücken mit Soli glänzt, die nur er zu spielen imstande ist und die es halt nur bei METALLICA gibt. Teilweise zart und verletzlich, dann wieder reißerisch und brutal, vielleicht sind diese Gitarrenexzesse die einzige Verbeugung vor der Vergangenheit. Besser war der Ausnahmegitarrist auch nicht auf den ersten vier Outputs der Band und allein seine Arbeit ist den Kauf der Platte wert. Was ist sonst noch zu den Songs zu sagen. Vielleicht noch, dass \"The Unforgiven III\" nicht so schlecht wie überall zu lesen ist. Das es unter anderem mit \"The Day That Never Comes\" und \"The Judas Kiss\" zwei Kracher im Gepäck gibt. Weiter befindet sich mit \"Suicide & Redemption\" ein Instrumental in der Setlist, das mit zehn Minuten um acht zu lang ist und als Lückenfüller abgestempelt werden muss. Die Produktion von Rick Rubin, der in der Vergangenheit (nicht immer) den Sound der Intimfeinde SLAYER veredelte, ist sehr metallastig, vergessen sind die Ausrutscher der letzten Jahre. Ach, fast hätte ich ihn vergessen, METALLICA haben ja noch einen Drummer, der wie immer technisch unter aller Sau aber mit enorm viel Gefühl versucht, den Songs, seinen eigenen Songs, so einigermaßen zu folgen. Meiner Meinung nach läuft er seit dem grandiosen Debüt \"Kill 'Em All\" hinter diesen her und wird sie nie einholen. Das kennt der Fan, das will der Fan wahrscheinlich auch so. Nicht vorzustellen wie METALLICA mit einem richtig technisch versierten, tighten Drummer klingen würden...Ich bin froh, überhaupt noch eine neue METALLICA-CD neben die anderen stellen zu dürfen, so dass mein Fazit für \"Death Magnetic\" positiv ausfällt. Früher hätte ich mich zwei Wochen mit Pils und Qualmzeug eingeschlossen, um ein neues Album aufzusagen, heute höre ich \"Death Magnetic\" zusammen mit meiner Familie. METALLICA sind immer noch METALLICA, gerade die Aushängeschilder James Hetfield und Kirk Hammett brillieren auf dem neuen Album, so dass ein wenig Wiedergutmachung betrieben wurde. Jetzt darf gespannt auf das nächste Werk gewartet werden."
+	
+ }

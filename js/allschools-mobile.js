@@ -9,6 +9,9 @@ $('#newsListPage').live('pageinit', function(event) {
 $('#recordReviewListPage').live('pageinit', function(event) {
 	getRecordReviewList();
 });
+$('#recordReviewPage').live('pageinit', function(event) {
+	getRecordReview();
+});
 
 function getNews() {
 	$.getJSON(serviceURL + 'news.json', function(data) {
@@ -38,8 +41,17 @@ function getRecordReviewList() {
 		$('#recordReviewList li').remove();
 		var reviews = data.items;
 		$.each(reviews, function(index, entry) {
-			$('#recordReviewList').append('<li><a href="recordreview.html?id=' + entry.id + '"><img src="'+ entry.cover + '" /><h3>' + entry.bandName + '</h3><p>' + entry.recordName + '</p></a></li>');
+			$('#recordReviewList').append('<li><a data-transition="slide" href="recordreview.html?id=' + entry.id + '"><img src="'+ entry.cover + '" /><h3>' + entry.bandName + '</h3><p>' + entry.recordName + '</p></a></li>');
 		});
 		$('#recordReviewList').listview('refresh');
+	});
+}
+
+function getRecordReview() {
+	$.getJSON(serviceURL + 'recordreview.json', function(data) {
+		$('#title').text(data.band.name + " - " + data.recordName);
+		$('#text').text(data.reviewText);
+		$('#cover').attr("src", data.cover);
+
 	});
 }
