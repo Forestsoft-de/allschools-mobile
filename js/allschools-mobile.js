@@ -56,8 +56,8 @@ function getRecordReview() {
 		$.each(data.authors, function(index, entry) {
 			$('#authors').after('<li><a data-transition="slide" href="author.html?id=' + entry.id + '">' + entry.firstName + '</a></li>');
 		});
-		$('#bandName').text(data.band.name);
-		$('#labelName').text(data.label.name);
+		$('#band').after('<li><a data-transition="slide" href="band.html?id=' + data.band.id + '">' + data.band.name + '</a></li>');
+		$('#label').after('<li><a data-transition="slide" href="label.html?id=' + data.label.id + '">' + data.label.name + '</a></li>');
 		$('#recordInfo').listview('refresh');
 		
 		$('#cover').attr("src", data.cover);
