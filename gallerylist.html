@@ -11,14 +11,14 @@
 </head> 
 
 <body> 
-	<div data-role="page">
+	<div data-role="page" id="galleryListPage">
 
 		<div data-role="header">
 			<h1>Allschools</h1>
 		</div><!-- /header -->
 
 		<div data-role="content">	
-			<p>Page content goes here.</p>		
+			<ul id="galleryList" data-role="listview"></ul>
 		</div><!-- /content -->
 
 		<style>	
@@ -32,14 +32,15 @@
 		<div data-role="footer" class="nav-glyphish">
 				<div data-role="navbar" class="nav-glyphish" data-position="fixed" data-iconpos="top">
 					<ul>
-						<li><a href="index.html" id="home" data-icon="custom" class="ui-btn-active">Home</a></li>
+						<li><a href="index.html" id="home" data-icon="custom">Home</a></li>
 						<li><a href="newslist.html" id="news" data-icon="custom">News</a></li>
-						<li><a href="recordreviewlist.html" id="reviews" data-icon="custom">Reviews</a></li>
-						<li><a href="gallerylist.html" id="shows" data-icon="custom">Photos</a></li>
+						<li><a href="recordreviewlist.html" id="reviews" data-icon="custom"  class="ui-btn-active">Reviews</a></li>
+						<li><a href="#" id="shows" data-icon="custom">Shows</a></li>
 					</ul>
 				</div><!-- /navbar -->
 		</div><!-- /footer -->
 	</div><!-- /page -->
-<script src="js/allschools-mobile.js"></script>
+	<script src="js/allschools-mobile.js"></script>
+
 </body>
 </html>

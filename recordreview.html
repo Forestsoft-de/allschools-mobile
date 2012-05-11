@@ -21,6 +21,12 @@
 			<h3 id="title" style="text-align: center"></h3>
 			<img id="cover" style="display: block; margin-left: auto; margin-right: auto"></img>
 			<p id="text"></p>
+			<div id="ratings">
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><h2>Leser</h2></div>
+					<div class="ui-block-b"><h2><span id="readerRating"></span></h2>(<span id="readerRatingCount"></span> Ratings)</div>
+				</div><!-- /grid-a -->
+			</div>
 			<div data-role="collapsible">
 				<h3>Record Info</h3>
 				<ul id="recordInfo" data-role="listview" data-inset="true">
@@ -38,6 +44,7 @@
 					<li id="band" data-role="list-divider">Band</li>
 				</ul>
 			</div>
+			
 		</div><!-- /content -->
 
 		<style>	
@@ -54,7 +61,7 @@
 						<li><a href="index.html" id="home" data-icon="custom">Home</a></li>
 						<li><a href="newslist.html" id="news" data-icon="custom">News</a></li>
 						<li><a href="recordreviewlist.html" id="reviews" data-icon="custom" class="ui-btn-active">Reviews</a></li>
-						<li><a href="#" id="shows" data-icon="custom">Shows</a></li>
+                        <li><a href="gallerylist.html" id="shows" data-icon="custom">Photos</a></li>
 					</ul>
 				</div><!-- /navbar -->
 		</div><!-- /footer -->

@@ -12,7 +12,9 @@ $('#recordReviewListPage').live('pageinit', function(event) {
 $('#recordReviewPage').live('pageinit', function(event) {
 	getRecordReview();
 });
-
+$('#galleryListPage').live('pageinit', function(event) {
+    getGalleryList();
+});
 function getNews() {
 	$.getJSON(serviceURL + 'news.json', function(data) {
 		$('#title').text(data.title);
@@ -61,6 +63,20 @@ function getRecordReview() {
 		$('#recordInfo').listview('refresh');
 		
 		$('#cover').attr("src", data.cover);
-
+		$('#readerRating').text(data.readerRating.average);
+		$('#readerRatingCount').text(data.readerRating.number);
+        $.each(data.authorRatings, function(index,entry) {
+            $('#ratings').append('<div class="ui-grid-a"><div class="ui-block-a"><h2>' + entry.firstName+ '</h2></div><div class="ui-block-b"><h2><p> ' + entry.rating + '</p></h2></div></div>');
+        });
 	});
+}
+
+function getGalleryList() {
+    $.getJSON(serviceURL + 'gallerylist.json', function(data) {
+        $('#galleryList li').remove();
+        $.each(data.items, function(index, entry) {
+            $('#galleryList').append('<li><a data-transition="slide" href="gallery.html?id=' + entry.id + '"><img src="'+ entry.thumbnail + '" /><h3>' + entry.name + '</h3></a></li>');
+        });
+        $('#galleryList').listview('refresh');
+    });
 }
