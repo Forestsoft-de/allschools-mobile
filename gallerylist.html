@@ -1,46 +1,131 @@
-<!DOCTYPE html> 
-<html> 
-	<head> 
-	<title>Allschools Mobile</title> 
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Allschools Mobile</title>
 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-</head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="cache-control" content="no-cache">
 
-<body> 
-	<div data-role="page" id="galleryListPage">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
+    <link href="css/jquery-mobile.css" type="text/css" rel="stylesheet" />
+    <link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
 
-		<div data-role="header">
-			<h1>Allschools</h1>
-		</div><!-- /header -->
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script type="text/javascript" src="js/photoswipe/klass.min.js"></script>
+    <script type="text/javascript" src="js/photoswipe/code.photoswipe.jquery-3.0.4.min.js"></script>
+    <script type="text/javascript">
 
-		<div data-role="content">	
-			<ul id="galleryList" data-role="listview"></ul>
-		</div><!-- /content -->
+        /*
+         * IMPORTANT!!!
+         * REMEMBER TO ADD  rel="external"  to your anchor tags.
+         * If you don't this will mess with how jQuery Mobile works
+         */
 
-		<style>	
-				.nav-glyphish .ui-btn .ui-btn-inner { padding-top: 40px !important; }
-				.nav-glyphish .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
-				#home .ui-icon { background:  url(images/glyphish-icons/09-chat-2.png) 50% 50% no-repeat; background-size: 24px 22px; }
-				#news .ui-icon { background:  url(images/glyphish-icons/18-envelope.png) 50% 50% no-repeat; background-size: 24px 16px;  }
-				#reviews .ui-icon { background:  url(images/glyphish-icons/30-key.png) 50% 50% no-repeat;  background-size: 12px 26px; }
-				#shows .ui-icon { background:  url(images/glyphish-icons/88-beer-mug.png) 50% 50% no-repeat;  background-size: 22px 27px; }
-		</style>
-		<div data-role="footer" class="nav-glyphish">
-				<div data-role="navbar" class="nav-glyphish" data-position="fixed" data-iconpos="top">
-					<ul>
-						<li><a href="index.html" id="home" data-icon="custom">Home</a></li>
-						<li><a href="newslist.html" id="news" data-icon="custom">News</a></li>
-						<li><a href="recordreviewlist.html" id="reviews" data-icon="custom"  class="ui-btn-active">Reviews</a></li>
-						<li><a href="#" id="shows" data-icon="custom">Shows</a></li>
-					</ul>
-				</div><!-- /navbar -->
-		</div><!-- /footer -->
-	</div><!-- /page -->
-	<script src="js/allschools-mobile.js"></script>
+        (function (window, $, PhotoSwipe) {
+
+            $(document).ready(function () {
+
+
+                $('div.gallery-page')
+                        .live('pageshow', function (e) {
+
+                            var
+                                    currentPage = $(e.target),
+                                    options = {},
+                                    photoSwipeInstance = $("ul.gallery a", e.target).photoSwipe(options, currentPage.attr('id'));
+
+                            return true;
+
+                        })
+
+                        .live('pagehide', function (e) {
+
+                            var
+                                    currentPage = $(e.target),
+                                    photoSwipeInstance = PhotoSwipe.getInstance(currentPage.attr('id'));
+
+                            if (typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null) {
+                                PhotoSwipe.detatch(photoSwipeInstance);
+                            }
+
+                            return true;
+
+                        });
+
+            });
+
+        }(window, window.jQuery, window.Code.PhotoSwipe));
+
+    </script>
+
+</head>
+
+<body>
+<div data-role="page" id="galleryListPage">
+
+    <div data-role="header">
+        <h1>Allschools</h1>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <ul id="galleryList" data-role="listview"></ul>
+    </div>
+    <!-- /content -->
+
+    <style>
+        .nav-glyphish .ui-btn .ui-btn-inner {
+            padding-top: 40px !important;
+        }
+
+        .nav-glyphish .ui-btn .ui-icon {
+            width: 30px !important;
+            height: 30px !important;
+            margin-left: -15px !important;
+            box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -webkit-border-radius: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        #home .ui-icon {
+            background: url(images/glyphish-icons/09-chat-2.png) 50% 50% no-repeat;
+            background-size: 24px 22px;
+        }
+
+        #news .ui-icon {
+            background: url(images/glyphish-icons/18-envelope.png) 50% 50% no-repeat;
+            background-size: 24px 16px;
+        }
+
+        #reviews .ui-icon {
+            background: url(images/glyphish-icons/30-key.png) 50% 50% no-repeat;
+            background-size: 12px 26px;
+        }
+
+        #shows .ui-icon {
+            background: url(images/glyphish-icons/88-beer-mug.png) 50% 50% no-repeat;
+            background-size: 22px 27px;
+        }
+    </style>
+    <div data-role="footer" class="nav-glyphish">
+        <div data-role="navbar" class="nav-glyphish" data-position="fixed" data-iconpos="top">
+            <ul>
+                <li><a href="index.html" id="home" data-icon="custom">Home</a></li>
+                <li><a href="newslist.html" id="news" data-icon="custom">News</a></li>
+                <li><a href="recordreviewlist.html" id="reviews" data-icon="custom">Reviews</a></li>
+                <li><a href="gallerylist.html" id="shows" data-icon="custom" class="ui-btn-active">Photos</a></li>
+            </ul>
+        </div>
+        <!-- /navbar -->
+    </div>
+    <!-- /footer -->
+</div>
+<!-- /page -->
+<script src="js/allschools-mobile.js"></script>
 
 </body>
 </html>

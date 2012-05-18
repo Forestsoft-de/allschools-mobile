@@ -15,6 +15,12 @@ $('#recordReviewPage').live('pageinit', function(event) {
 $('#galleryListPage').live('pageinit', function(event) {
     getGalleryList();
 });
+$('#galleryPage').live('pageinit', function(event) {
+    getGallery();
+});
+
+
+
 function getNews() {
 	$.getJSON(serviceURL + 'news.json', function(data) {
 		$('#title').text(data.title);
@@ -75,8 +81,19 @@ function getGalleryList() {
     $.getJSON(serviceURL + 'gallerylist.json', function(data) {
         $('#galleryList li').remove();
         $.each(data.items, function(index, entry) {
-            $('#galleryList').append('<li><a data-transition="slide" href="gallery.html?id=' + entry.id + '"><img src="'+ entry.thumbnail + '" /><h3>' + entry.name + '</h3></a></li>');
+            $('#galleryList').append('<li><a href="gallery.html"><img src="'+ entry.thumbnail + '" /><h3>' + entry.name + '</h3></a></li>');
         });
         $('#galleryList').listview('refresh');
     });
+}
+function getGallery() {
+    /*
+    $.getJSON(serviceURL + 'gallery.json', function(data) {
+        $('#pictureList li').remove();
+        $.each(data.images, function(index, entry) {
+            $('#pictureList').append('<li><a href="' + entry.big + '" rel="external"><img src="' + entry.thumb + '" alt="Image 001"></img></a></li>');
+        });
+    });
+    */
+
 }
