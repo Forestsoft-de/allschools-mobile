@@ -87,13 +87,11 @@ function getGalleryList() {
     });
 }
 function getGallery() {
-    /*
     $.getJSON(serviceURL + 'gallery.json', function(data) {
         $('#pictureList li').remove();
         $.each(data.images, function(index, entry) {
             $('#pictureList').append('<li><a href="' + entry.big + '" rel="external"><img src="' + entry.thumb + '" alt="Image 001"></img></a></li>');
         });
     });
-    */
 
 }
