@@ -4,8 +4,11 @@
 	"text": "lorem ipsum",
 	"date": "26.04.12",
 	"time": "10:56",
-	"author": "mitch",
-	"authorName": "Mitch",
+    "author": {
+        "id": "12324",
+        "username": "lena",
+        "firstName": "Lena S."
+    },
 	"comments": 
 		[
 			{

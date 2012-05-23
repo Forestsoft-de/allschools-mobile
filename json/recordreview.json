@@ -14,10 +14,12 @@
 		[
 			{
 				"id": "12324",
+                "username": "clement",
 				"firstName": "Clement"
 			},
 			{
 				"id": "324",
+                "username": "mploed",
 				"firstName": "Michael P."
 			}
 			

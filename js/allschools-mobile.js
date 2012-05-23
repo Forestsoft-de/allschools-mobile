@@ -28,7 +28,7 @@ function getNews() {
 	$.getJSON('http://localhost:8080/rest/news/' + newsId + '?callback=?', function(data) {
 		$('#title').text(data.title);
 		$('#text').text(data.text);
-		$('#author').text(data.authorName);
+		$('#author').text(data.author.firstName);
 
 	});
 }
