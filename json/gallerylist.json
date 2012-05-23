@@ -1,20 +1,18 @@
-{
-    "items":[
-        {
-            "id":1303935,
-            "name":"Every Time I Die - Köln - Underground (01.05.2012)",
-            "thumbnail":"http://allschools.de:80/pictures/bands/Every_Time_I_Die/Every_Time_I_Die_-_Koeln_-_Underground_(01.05.2012)/img_22_s.jpg"
-        },
-        {
-            "id":1303934,
-            "name":"Cancer Bats - Köln - Underground (01.05.2012)",
-            "thumbnail":"http://allschools.de:80/pictures/bands/Cancer_Bats/Cancer_Bats_-_Koeln_-_Underground_(01.05.2012)/img_27_s.jpg"
-        },
-        {
-            "id":1303933,
-            "name":"Set Your Goals - Köln - Underground (01.05.2012)",
-            "thumbnail":"http://allschools.de:80/pictures/bands/Set_Your_Goals/Set_Your_Goals_-_Koeln_-_Underground_(01.05.2012)/img_5_s.jpg"
-        }
+[
+    {
+        "id":1303935,
+        "name":"Every Time I Die - Köln - Underground (01.05.2012)",
+        "thumbnail":"http://allschools.de:80/pictures/bands/Every_Time_I_Die/Every_Time_I_Die_-_Koeln_-_Underground_(01.05.2012)/img_22_s.jpg"
+    },
+    {
+        "id":1303934,
+        "name":"Cancer Bats - Köln - Underground (01.05.2012)",
+        "thumbnail":"http://allschools.de:80/pictures/bands/Cancer_Bats/Cancer_Bats_-_Koeln_-_Underground_(01.05.2012)/img_27_s.jpg"
+    },
+    {
+        "id":1303933,
+        "name":"Set Your Goals - Köln - Underground (01.05.2012)",
+        "thumbnail":"http://allschools.de:80/pictures/bands/Set_Your_Goals/Set_Your_Goals_-_Koeln_-_Underground_(01.05.2012)/img_5_s.jpg"
+    }
 
-    ]
-}
+]

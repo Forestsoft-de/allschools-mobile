@@ -22,7 +22,10 @@ $('#galleryPage').live('pageinit', function(event) {
 
 
 function getNews() {
-	$.getJSON(serviceURL + 'news.json', function(data) {
+    var allVars = $.getUrlVars();
+
+    var newsId = $.getUrlVar('id');
+	$.getJSON('http://localhost:8080/rest/news/' + newsId + '?callback=?', function(data) {
 		$('#title').text(data.title);
 		$('#text').text(data.text);
 		$('#author').text(data.authorName);
@@ -79,7 +82,7 @@ function getRecordReview() {
 function getGalleryList() {
     $.getJSON(serviceURL + 'gallerylist.json', function(data) {
         $('#galleryList li').remove();
-        $.each(data.items, function(index, entry) {
+        $.each(data, function(index, entry) {
             $('#galleryList').append('<li><a href="gallery.html"><img src="'+ entry.thumbnail + '" /><h3>' + entry.name + '</h3></a></li>');
         });
         $('#galleryList').listview('refresh');
@@ -94,3 +97,19 @@ function getGallery() {
     });
 
 }
+$.extend({
+    getUrlVars: function(){
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    },
+    getUrlVar: function(name){
+        return $.getUrlVars()[name];
+    }
+});
