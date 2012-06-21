@@ -15,7 +15,7 @@ $('#recordReviewPage').live('pageinit', function(event) {
 $('#galleryListPage').live('pageinit', function(event) {
     getGalleryList();
 });
-$('#galleryPage').live('pageinit', function(event) {
+$('#galleryPage').live('pageshow', function(event) {
     getGallery();
 });
 
@@ -39,7 +39,7 @@ function getNewsList() {
 		$.each(data, function(index, entry) {
 			$('#newsList').append('<li data-role="list-divider">' + entry.date + ' <span class="ui-li-count">' + entry.count+ '</span></li>');
 			$.each(entry.news, function(index, entryDetail) {
-				$('#newsList').append('<li><a data-transition="slide" href="news.html?id=' + entryDetail.id + '"><h3>'+entryDetail.header+'</h3><p>'+entryDetail.teaser+'</p><p class="ui-li-aside">' + entryDetail.time + '</p></a></li>');
+				$('#newsList').append('<li><a data-transition="slide" data-ajax="false" href="news.html?id=' + entryDetail.id + '"><h3>'+entryDetail.header+'</h3><p>'+entryDetail.teaser+'</p><p class="ui-li-aside">' + entryDetail.time + '</p></a></li>');
 			});
 		});
 		$('#newsList').listview('refresh');
@@ -47,18 +47,17 @@ function getNewsList() {
 }
 
 function getRecordReviewList() {
-	$.getJSON(serviceURL + 'recordreviewlist.json', function(data) {
+	$.getJSON('http://localhost:8080/rest/recordreviews?callback=?', function(data) {
 		$('#recordReviewList li').remove();
-		var reviews = data.items;
-		$.each(reviews, function(index, entry) {
-			$('#recordReviewList').append('<li><a data-transition="slide" href="recordreview.html?id=' + entry.id + '"><img src="'+ entry.cover + '" /><h3>' + entry.bandName + '</h3><p>' + entry.recordName + '</p></a></li>');
+		$.each(data, function(index, entry) {
+			$('#recordReviewList').append('<li><a data-ajax="false" data-transition="slide" href="recordreview.html?id=' + entry.id + '"><img src="'+ entry.cover + '" /><h3>' + entry.bandName + '</h3><p>' + entry.recordName + '</p></a></li>');
 		});
 		$('#recordReviewList').listview('refresh');
 	});
 }
 
 function getRecordReview() {
-	$.getJSON(serviceURL + 'recordreview.json', function(data) {
+	$.getJSON('http://localhost:8080/rest/recordreview/' +  $.getUrlVar('id') + '?callback=?', function(data) {
 		$('#title').text(data.band.name + " - " + data.recordName);
 		$('#text').text(data.reviewText);
 		$('#reviewDate').text(data.reviewDate);
@@ -80,19 +79,18 @@ function getRecordReview() {
 }
 
 function getGalleryList() {
-    $.getJSON(serviceURL + 'gallerylist.json', function(data) {
+    $.getJSON('http://localhost:8080/rest/galleries?callback=?', function(data) {
         $('#galleryList li').remove();
         $.each(data, function(index, entry) {
-            $('#galleryList').append('<li><a href="gallery.html"><img src="'+ entry.thumbnail + '" /><h3>' + entry.name + '</h3></a></li>');
+            $('#galleryList').append('<li><a href="gallery.html?id=' + entry.id + '"><img src="'+ entry.thumbnail + '" /><h3>' + entry.title + '</h3></a></li>');
         });
         $('#galleryList').listview('refresh');
     });
 }
 function getGallery() {
-    $.getJSON(serviceURL + 'gallery.json', function(data) {
-        $('#pictureList li').remove();
+    $.getJSON('http://localhost:8080/rest/gallery/' +  $.getUrlVar('id') + '?callback=?', function(data) {
         $.each(data.images, function(index, entry) {
-            $('#pictureList').append('<li><a href="' + entry.big + '" rel="external"><img src="' + entry.thumb + '" alt="Image 001"></img></a></li>');
+            $('#gallery').append('<li><a href="' + entry.big + '" rel="external"><img src="' + entry.thumb + '" alt="Image 001"></img></a></li>');
         });
     });
 

@@ -1,24 +1,21 @@
-{
-     "items":
-     [
-        {
-			"id": 1303575,
-			"bandName": "John 5",
-			"recordName": "God Told Me To ",
-			"cover": "http://allschools.de/pictures/cover/John_5_God_Told_Me_To_sm.jpg"
-		},
-		{
-			"id": 1303574,
-			"bandName": "The Tidal Sleep",
-			"recordName": "The Tidal Sleep",
-			"cover": "http://allschools.de/pictures/cover/The_Tidal_Sleep_The_Tidal_Sleep_sm.jpg"
-		},
-		{
-			"id": 1303574,
-			"bandName": "Devin",
-			"recordName": "Romancing",
-			"cover": "http://allschools.de/pictures/cover/Devin_Romancing_sm.jpg"
-		}
+[
+    {
+        "id":1303575,
+        "bandName":"John 5",
+        "recordName":"God Told Me To ",
+        "cover":"http://allschools.de/pictures/cover/John_5_God_Told_Me_To_sm.jpg"
+    },
+    {
+        "id":1303574,
+        "bandName":"The Tidal Sleep",
+        "recordName":"The Tidal Sleep",
+        "cover":"http://allschools.de/pictures/cover/The_Tidal_Sleep_The_Tidal_Sleep_sm.jpg"
+    },
+    {
+        "id":1303574,
+        "bandName":"Devin",
+        "recordName":"Romancing",
+        "cover":"http://allschools.de/pictures/cover/Devin_Romancing_sm.jpg"
+    }
 
-     ]
- }
+]

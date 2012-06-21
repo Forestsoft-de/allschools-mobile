@@ -9,6 +9,55 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	
+	
+	<script>
+	function showNews( urlObj, options )
+	{
+		var newsId = urlObj.hash.replace( /.*news=/, "" );
+		$.getJSON('http://localhost:8080/rest/news/' + newsId + '?callback=?', function(data) {
+
+			pageSelector = urlObj.hash.replace( /\?.*$/, "" );
+			var $page = $( pageSelector );
+			$header = $page.children( ":jqmData(role=header)" );
+
+			$content = $page.children( ":jqmData(role=content)" );
+			markup = "<h3>" + data.title + "</h3><p>"+data.text+"</p><p>"+data.author.firstName+"</p>";
+
+			$content.html( markup );
+			$page.page();
+			options.dataUrl = urlObj.href;
+			$.mobile.changePage( $page, options );
+		});
+
+	}
+
+
+	$(document).bind( "pagebeforechange", function( e, data ) {
+		if ( typeof data.toPage === "string" ) {
+			var u = $.mobile.path.parseUrl( data.toPage ),
+				re = /^#news-item/;
+			if ( u.hash.search(re) !== -1 ) {
+				showNews( u, data.options );
+
+				// Make sure to tell changePage() we've handled this call so it doesn't
+				// have to do anything.
+				e.preventDefault();
+			}
+		}
+	});
+
+
+	</script>
+	<style>	
+			.nav-glyphish .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+			.nav-glyphish .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+			#home .ui-icon { background:  url(images/glyphish-icons/09-chat-2.png) 50% 50% no-repeat; background-size: 24px 22px; }
+			#news .ui-icon { background:  url(images/glyphish-icons/18-envelope.png) 50% 50% no-repeat; background-size: 24px 16px;  }
+			#reviews .ui-icon { background:  url(images/glyphish-icons/30-key.png) 50% 50% no-repeat;  background-size: 12px 26px; }
+			#shows .ui-icon { background:  url(images/glyphish-icons/88-beer-mug.png) 50% 50% no-repeat;  background-size: 22px 27px; }
+	</style>
+	
 </head> 
 
 <body> 
@@ -22,14 +71,6 @@
 					<ul id="newsList" data-role="listview" data-theme="d" data-divider-theme="d"></ul>
 		</div><!-- /content -->
 
-		<style>	
-				.nav-glyphish .ui-btn .ui-btn-inner { padding-top: 40px !important; }
-				.nav-glyphish .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
-				#home .ui-icon { background:  url(images/glyphish-icons/09-chat-2.png) 50% 50% no-repeat; background-size: 24px 22px; }
-				#news .ui-icon { background:  url(images/glyphish-icons/18-envelope.png) 50% 50% no-repeat; background-size: 24px 16px;  }
-				#reviews .ui-icon { background:  url(images/glyphish-icons/30-key.png) 50% 50% no-repeat;  background-size: 12px 26px; }
-				#shows .ui-icon { background:  url(images/glyphish-icons/88-beer-mug.png) 50% 50% no-repeat;  background-size: 22px 27px; }
-		</style>
 		<div data-role="footer" class="nav-glyphish">
 				<div data-role="navbar" class="nav-glyphish" data-position="fixed" data-iconpos="top">
 					<ul>
@@ -41,6 +82,23 @@
 				</div><!-- /navbar -->
 		</div><!-- /footer -->
 	</div><!-- /page -->
-<script src="js/allschools-mobile.js"></script>
+	
+	<div id="news-item" data-role="page" data-add-back-btn="true">
+	  	<div data-role="header"><h1>Allschools News</h1></div>
+	  	<div data-role="content"></div>
+		<div data-role="footer" class="nav-glyphish">
+			<div data-role="navbar" class="nav-glyphish" data-position="fixed" data-iconpos="top">
+				<ul>
+					<li><a href="index.html" id="home" data-icon="custom">Home</a></li>
+					<li><a href="newslist.html" id="news" data-icon="custom" class="ui-btn-active">News</a></li>
+					<li><a href="recordreviewlist.html" id="reviews" data-icon="custom">Reviews</a></li>
+                     <li><a href="gallerylist.html" id="shows" data-icon="custom">Photos</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /footer -->
+	</div>
+
+<script src="js/allschools-global.js"></script>
+<script src="js/news.js"></script>
 </body>
 </html>
