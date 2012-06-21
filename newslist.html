@@ -12,40 +12,40 @@
 	
 	
 	<script>
-	function showNews( urlObj, options )
-	{
-		var newsId = urlObj.hash.replace( /.*news=/, "" );
-		$.getJSON('http://localhost:8080/rest/news/' + newsId + '?callback=?', function(data) {
+		function showNews( urlObj, options )
+		{
+			var newsId = urlObj.hash.replace( /.*news=/, "" );
+			$.getJSON('http://localhost:8080/rest/news/' + newsId + '?callback=?', function(data) {
 
-			pageSelector = urlObj.hash.replace( /\?.*$/, "" );
-			var $page = $( pageSelector );
-			$header = $page.children( ":jqmData(role=header)" );
+				pageSelector = urlObj.hash.replace( /\?.*$/, "" );
+				var $page = $( pageSelector );
+				$header = $page.children( ":jqmData(role=header)" );
 
-			$content = $page.children( ":jqmData(role=content)" );
-			markup = "<h3>" + data.title + "</h3><p>"+data.text+"</p><p>"+data.author.firstName+"</p>";
+				$content = $page.children( ":jqmData(role=content)" );
+				markup = "<h3>" + data.title + "</h3><p>"+data.text+"</p><p>"+data.author.firstName+"</p>";
 
-			$content.html( markup );
-			$page.page();
-			options.dataUrl = urlObj.href;
-			$.mobile.changePage( $page, options );
-		});
+				$content.html( markup );
+				$page.page();
+				options.dataUrl = urlObj.href;
+				$.mobile.changePage( $page, options );
+			});
 
-	}
-
-
-	$(document).bind( "pagebeforechange", function( e, data ) {
-		if ( typeof data.toPage === "string" ) {
-			var u = $.mobile.path.parseUrl( data.toPage ),
-				re = /^#news-item/;
-			if ( u.hash.search(re) !== -1 ) {
-				showNews( u, data.options );
-
-				// Make sure to tell changePage() we've handled this call so it doesn't
-				// have to do anything.
-				e.preventDefault();
-			}
 		}
-	});
+
+
+		$(document).bind( "pagebeforechange", function( e, data ) {
+			if ( typeof data.toPage === "string" ) {
+				var u = $.mobile.path.parseUrl( data.toPage ),
+					re = /^#news-item/;
+				if ( u.hash.search(re) !== -1 ) {
+					showNews( u, data.options );
+
+					// Make sure to tell changePage() we've handled this call so it doesn't
+					// have to do anything.
+					e.preventDefault();
+				}
+			}
+		});
 
 
 	</script>
