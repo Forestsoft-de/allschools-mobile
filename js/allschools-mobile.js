@@ -1,50 +1,9 @@
-var serviceURL = "json/";
-
-$('#newsPage').live('pageinit', function(event) {
-	getNews();
-});
-$('#newsListPage').live('pageinit', function(event) {
-	getNewsList();
-});
 $('#recordReviewListPage').live('pageinit', function(event) {
 	getRecordReviewList();
 });
 $('#recordReviewPage').live('pageinit', function(event) {
 	getRecordReview();
 });
-$('#galleryListPage').live('pageinit', function(event) {
-    getGalleryList();
-});
-$('#galleryPage').live('pageshow', function(event) {
-    getGallery();
-});
-
-
-
-function getNews() {
-    var allVars = $.getUrlVars();
-
-    var newsId = $.getUrlVar('id');
-	$.getJSON('http://localhost:8080/rest/news/' + newsId + '?callback=?', function(data) {
-		$('#title').text(data.title);
-		$('#text').text(data.text);
-		$('#author').text(data.author.firstName);
-
-	});
-}
-
-function getNewsList() {
-	$.getJSON('http://localhost:8080/rest/news?callback=?', function(data) {
-		$('#newsList li').remove();
-		$.each(data, function(index, entry) {
-			$('#newsList').append('<li data-role="list-divider">' + entry.date + ' <span class="ui-li-count">' + entry.count+ '</span></li>');
-			$.each(entry.news, function(index, entryDetail) {
-				$('#newsList').append('<li><a data-transition="slide" data-ajax="false" href="news.html?id=' + entryDetail.id + '"><h3>'+entryDetail.header+'</h3><p>'+entryDetail.teaser+'</p><p class="ui-li-aside">' + entryDetail.time + '</p></a></li>');
-			});
-		});
-		$('#newsList').listview('refresh');
-	});
-}
 
 function getRecordReviewList() {
 	$.getJSON('http://localhost:8080/rest/recordreviews?callback=?', function(data) {
@@ -78,23 +37,6 @@ function getRecordReview() {
 	});
 }
 
-function getGalleryList() {
-    $.getJSON('http://localhost:8080/rest/galleries?callback=?', function(data) {
-        $('#galleryList li').remove();
-        $.each(data, function(index, entry) {
-            $('#galleryList').append('<li><a href="gallery.html?id=' + entry.id + '"><img src="'+ entry.thumbnail + '" /><h3>' + entry.title + '</h3></a></li>');
-        });
-        $('#galleryList').listview('refresh');
-    });
-}
-function getGallery() {
-    $.getJSON('http://localhost:8080/rest/gallery/' +  $.getUrlVar('id') + '?callback=?', function(data) {
-        $.each(data.images, function(index, entry) {
-            $('#gallery').append('<li><a href="' + entry.big + '" rel="external"><img src="' + entry.thumb + '" alt="Image 001"></img></a></li>');
-        });
-    });
-
-}
 $.extend({
     getUrlVars: function(){
         var vars = [], hash;

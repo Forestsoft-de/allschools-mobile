@@ -10,13 +10,84 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css"/>
     <link href="css/jquery-mobile.css" type="text/css" rel="stylesheet" />
     <link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	<style>
+        .nav-glyphish .ui-btn .ui-btn-inner {
+            padding-top: 40px !important;
+        }
 
+        .nav-glyphish .ui-btn .ui-icon {
+            width: 30px !important;
+            height: 30px !important;
+            margin-left: -15px !important;
+            box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -webkit-border-radius: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        #home .ui-icon {
+            background: url(images/glyphish-icons/09-chat-2.png) 50% 50% no-repeat;
+            background-size: 24px 22px;
+        }
+
+        #news .ui-icon {
+            background: url(images/glyphish-icons/18-envelope.png) 50% 50% no-repeat;
+            background-size: 24px 16px;
+        }
+
+        #reviews .ui-icon {
+            background: url(images/glyphish-icons/30-key.png) 50% 50% no-repeat;
+            background-size: 12px 26px;
+        }
+
+        #shows .ui-icon {
+            background: url(images/glyphish-icons/88-beer-mug.png) 50% 50% no-repeat;
+            background-size: 22px 27px;
+        }
+    </style>
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     <script type="text/javascript" src="js/photoswipe/klass.min.js"></script>
     <script type="text/javascript" src="js/photoswipe/code.photoswipe.jquery-3.0.4.min.js"></script>
     <script type="text/javascript">
+		function showPictures( urlObj, options )
+		{
+			var galleryId = urlObj.hash.replace( /.*gallery=/, "" );
+			$.getJSON('http://localhost:8080/rest/gallery/' +  galleryId + '?callback=?', function(data) {
+				pageSelector = urlObj.hash.replace( /\?.*$/, "" );
+				var $page = $( pageSelector );
+				$header = $page.children( ":jqmData(role=header)" );
 
+				$content = $page.children( ":jqmData(role=content)" );
+				markup = "<ul id='gallery' class='gallery'>";
+				
+		        $.each(data.images, function(index, entry) {
+					markup += '<li><a href="' + entry.big + '" rel="external"><img src="' + entry.thumb + '" alt="Image 001"></img></a></li>';
+		        });
+				markup += "</ul>";
+		
+				$content.html( markup );
+				$page.page();
+				options.dataUrl = urlObj.href;
+				$.mobile.changePage( $page, options );
+		    });
+		}
+
+
+		$(document).bind( "pagebeforechange", function( e, data ) {
+			if ( typeof data.toPage === "string" ) {
+				var u = $.mobile.path.parseUrl( data.toPage ),
+					re = /^#gallery-item/;
+				if ( u.hash.search(re) !== -1 ) {
+					showPictures( u, data.options );
+
+					// Make sure to tell changePage() we've handled this call so it doesn't
+					// have to do anything.
+					e.preventDefault();
+				}
+			}
+		});
         /*
          * IMPORTANT!!!
          * REMEMBER TO ADD  rel="external"  to your anchor tags.
@@ -25,10 +96,10 @@
 
         (function (window, $, PhotoSwipe) {
 
-            $(document).ready(function () {
+			$(document).bind( "pagechange", function( e, data ) {
 
 
-                $('div.gallery-page')
+                $('div.gallery-item')
                         .live('pageshow', function (e) {
 
 
@@ -76,42 +147,7 @@
     </div>
     <!-- /content -->
 
-    <style>
-        .nav-glyphish .ui-btn .ui-btn-inner {
-            padding-top: 40px !important;
-        }
-
-        .nav-glyphish .ui-btn .ui-icon {
-            width: 30px !important;
-            height: 30px !important;
-            margin-left: -15px !important;
-            box-shadow: none !important;
-            -moz-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            -webkit-border-radius: 0 !important;
-            border-radius: 0 !important;
-        }
-
-        #home .ui-icon {
-            background: url(images/glyphish-icons/09-chat-2.png) 50% 50% no-repeat;
-            background-size: 24px 22px;
-        }
-
-        #news .ui-icon {
-            background: url(images/glyphish-icons/18-envelope.png) 50% 50% no-repeat;
-            background-size: 24px 16px;
-        }
-
-        #reviews .ui-icon {
-            background: url(images/glyphish-icons/30-key.png) 50% 50% no-repeat;
-            background-size: 12px 26px;
-        }
-
-        #shows .ui-icon {
-            background: url(images/glyphish-icons/88-beer-mug.png) 50% 50% no-repeat;
-            background-size: 22px 27px;
-        }
-    </style>
+    
     <div data-role="footer" class="nav-glyphish">
         <div data-role="navbar" class="nav-glyphish" data-position="fixed" data-iconpos="top">
             <ul>
@@ -126,7 +162,24 @@
     <!-- /footer -->
 </div>
 <!-- /page -->
-<script src="js/allschools-mobile.js"></script>
+
+<div id="gallery-item" data-role="page" data-add-back-btn="true">
+  	<div data-role="header"><h1>Allschools Pictures</h1></div>
+  	<div data-role="content"></div>
+	<div data-role="footer" class="nav-glyphish">
+		<div data-role="navbar" class="nav-glyphish" data-position="fixed" data-iconpos="top">
+			<ul>
+				<li><a href="index.html" id="home" data-icon="custom">Home</a></li>
+				<li><a href="newslist.html" id="news" data-icon="custom">News</a></li>
+				<li><a href="recordreviewlist.html" id="reviews" data-icon="custom">Reviews</a></li>
+                <li><a href="gallerylist.html" id="shows" data-icon="custom" class="ui-btn-active">Photos</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+</div>
+
+<script src="js/allschools-global.js"></script>
+<script src="js/gallery.js"></script>
 
 </body>
 </html>
